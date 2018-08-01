@@ -1,0 +1,44 @@
+### begin nem2-cli-bash-completion ###
+#
+# nem2-cli completion script for bash
+#
+# Installation: cat nem2-cli-bash-completion >> ~/.bashrc
+# Or, maybe: mv nem2-cli-bash-completion /etc/bash_completion.d/nem2-cli
+#
+__nem2-cli-completion() {
+  local opts curr prev
+  curr="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  [ $COMP_CWORD -eq 3 ] && return
+  case "$prev" in
+    account)
+      opts="aggregatebonded generate incoming info outgoing transactions unconfirmed"
+      ;;
+    blockchain)
+      opts="height score"
+      ;;
+    mosaic)
+      opts="info"
+      ;;
+    namespace)
+      opts="info"
+      ;;
+    transaction)
+      opts="info mosaic namespace pullfunds transfer"
+      ;;
+    monitor)
+      opts="aggregatebonded block confirmed cosignature status unconfirmed"
+      ;;
+    profile)
+      opts="create list"
+      ;;
+    *)
+      opts="account blockchain mosaic namespace transaction monitor profile"
+      ;;
+  esac
+  COMPREPLY=( $(compgen -W "$opts" -- "$curr") )
+  return 0
+}
+
+complete -F __nem2-cli-completion nem2-cli
+### end nem2-cli-bash-completion ###
