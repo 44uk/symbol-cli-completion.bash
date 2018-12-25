@@ -17,20 +17,20 @@ __nem2-cli-completion() {
     blockchain)
       opts="height score"
       ;;
+    monitor)
+      opts="aggregatebonded block confirmed cosignature status unconfirmed"
+      ;;
     mosaic)
       opts="info"
       ;;
     namespace)
       opts="info"
       ;;
-    transaction)
-      opts="info mosaic namespace pullfunds transfer"
-      ;;
-    monitor)
-      opts="aggregatebonded block confirmed cosignature status unconfirmed"
-      ;;
     profile)
       opts="create list"
+      ;;
+    transaction)
+      opts="cosign info mosaic namespace pullfunds transfer"
       ;;
     *)
       opts="account blockchain mosaic namespace transaction monitor profile"
