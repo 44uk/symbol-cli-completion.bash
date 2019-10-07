@@ -14,8 +14,14 @@ __nem2-cli-completion() {
     account)
       opts="aggregatebonded generate incoming info outgoing transactions unconfirmed"
       ;;
-    blockchain)
+    block)
+      opts="receipts transactions"
+      ;;
+    chain)
       opts="height score"
+      ;;
+    diagnostic)
+      opts="serverinfo storage"
       ;;
     monitor)
       opts="aggregatebonded block confirmed cosignature status unconfirmed"
@@ -24,16 +30,19 @@ __nem2-cli-completion() {
       opts="info"
       ;;
     namespace)
-      opts="info"
+      opts="alias info owned"
       ;;
     profile)
       opts="create list"
       ;;
+    restriction)
+      opts="account"
+      ;;
     transaction)
-      opts="cosign info mosaic namespace pullfunds transfer"
+      opts="accountlink addressalias cosign info mosaic mosaicalias mosaicsupplychange namespace status transfer"
       ;;
     *)
-      opts="account blockchain mosaic namespace transaction monitor profile"
+      opts="account block chain diagnostic monitor mosaic namespace profile restriction transaction"
       ;;
   esac
   COMPREPLY=( $(compgen -W "$opts" -- "$curr") )
