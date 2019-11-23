@@ -17,13 +17,16 @@ __nem2-cli-completion() {
       opts="aggregatebonded generate incoming info outgoing transactions unconfirmed"
       ;;
     block)
-      opts="receipts transactions"
+      opts="header receipts transactions"
       ;;
     chain)
       opts="height score"
       ;;
     diagnostic)
       opts="serverinfo storage"
+      ;;
+    metadata)
+      opts="account mosaic namespace"
       ;;
     monitor)
       opts="aggregatebonded block confirmed cosignature status unconfirmed"
@@ -35,16 +38,16 @@ __nem2-cli-completion() {
       opts="alias info owned"
       ;;
     profile)
-      opts="create list"
+      opts="create list setdefault"
       ;;
     restriction)
-      opts="account"
+      opts="account mosaicaddress mosaicglobal"
       ;;
     transaction)
-      opts="accountlink addressalias cosign info mosaic mosaicalias mosaicsupplychange namespace status transfer"
+      opts="accountlink accountmosaicrestriction accountoperationrestriction addressalias cosign info mosaic mosaicalias mosaicsupplychange namespace secretlock secretproof status transfer"
       ;;
     *)
-      opts="account block chain diagnostic monitor mosaic namespace profile restriction transaction"
+      opts="account block chain diagnostic metadata monitor mosaic namespace profile restriction transaction"
       ;;
   esac
 
