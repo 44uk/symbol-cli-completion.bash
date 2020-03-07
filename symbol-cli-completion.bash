@@ -1,11 +1,11 @@
-### begin nem2-cli-completion.bash ###
+### begin symbol-cli-completion.bash ###
 #
-# nem2-cli completion script for bash
+# symbol-cli completion script for bash
 #
-# Installation: cat nem2-cli-completion.bash >> ~/.bashrc
-# Or, maybe: mv nem2-cli-completion.bash /etc/bash_completion.d/nem2-cli
+# Installation: cat symbol-cli-completion.bash >> ~/.bashrc
+# Or, maybe: mv symbol-cli-completion.bash /etc/bash_completion.d/symbol-cli
 #
-__nem2-cli-completion() {
+__symbol-cli-completion() {
   local opts curr prev
 
   curr="${COMP_WORDS[COMP_CWORD]}"
@@ -56,5 +56,5 @@ __nem2-cli-completion() {
   return 0
 }
 
-complete -o default -F __nem2-cli-completion nem2-cli
-### end nem2-cli-completion.bash ###
+complete -o default -F __symbol-cli-completion symbol-cli
+### end symbol-cli-completion.bash ###
