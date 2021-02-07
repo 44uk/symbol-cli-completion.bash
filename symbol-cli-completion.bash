@@ -1,6 +1,6 @@
 ### begin symbol-cli-completion.bash ###
 #
-# symbol-cli completion script for bash
+# Symbol CLI v0.24.1 completion script for bash
 #
 # Installation: cat symbol-cli-completion.bash >> ~/.bashrc
 # Or, maybe: mv symbol-cli-completion.bash /etc/bash_completion.d/symbol-cli
@@ -19,10 +19,10 @@ __symbol-cli-completion() {
         account)
             case ${words[2]} in
                 generate)
-                    cmds="--profile --hd -u --url -n --network -p --password -d --default -g --generation-hash -i --namespace-id -v --divisibility -s --save"
+                    cmds="--profile --hd --url -u --network -n --password -p --default -d --generationHash -g --namespaceId -i --divisibility -v --epochAdjustment -e --save -s"
                 ;;
                 info)
-                    cmds="--profile -a --address"
+                    cmds="--profile --address -a"
                 ;;
                 *)
                     cmds="generate info"
@@ -32,13 +32,13 @@ __symbol-cli-completion() {
         block)
             case ${words[2]} in
                 info)
-                    cmds="--profile -h --height"
+                    cmds="--profile --height -h"
                 ;;
                 receipts)
-                    cmds="--profile -h --height"
+                    cmds="--profile --height -h"
                 ;;
                 search)
-                    cmds="--profile -o --order -n --page-size -n --page-number -i --offset --signer-public-key --beneficiary-address --order-by"
+                    cmds="--profile --order -o --pageSize -n --pageNumber -n --offset -i --signerPublicKey --beneficiaryAddress --orderBy"
                 ;;
                 *)
                     cmds="info receipts search"
@@ -50,39 +50,42 @@ __symbol-cli-completion() {
                 height)
                     cmds="--profile"
                 ;;
+                info)
+                    cmds="--profile"
+                ;;
                 score)
                     cmds="--profile"
                 ;;
                 *)
-                    cmds="height score"
+                    cmds="height info score"
                 ;;
             esac
         ;;
         converter)
             case ${words[2]} in
                 base32ToHexAddress)
-                    cmds="--profile -a --address"
+                    cmds="--profile --address -a"
                 ;;
                 hexToBase32Address)
-                    cmds="--profile -a --address"
+                    cmds="--profile --address -a"
                 ;;
                 namespaceNameToId)
-                    cmds="--profile -n --namespace-name"
+                    cmds="--profile --namespaceName -n"
                 ;;
                 numericStringToUInt64)
-                    cmds="--profile -a --amount"
+                    cmds="--profile --amount -a"
                 ;;
                 payloadToTransaction)
-                    cmds="--profile -p --payload"
+                    cmds="--profile --payload -p"
                 ;;
                 privateKeyToPublicKey)
-                    cmds="--profile -p --private-key -n --network"
+                    cmds="--profile --privateKey -p --network -n"
                 ;;
                 publicKeyToAddress)
-                    cmds="--profile -p --public-key -n --network"
+                    cmds="--profile --publicKey -p --network -n"
                 ;;
                 stringToKey)
-                    cmds="--profile -v --value"
+                    cmds="--profile --value -v"
                 ;;
                 *)
                     cmds="base32ToHexAddress hexToBase32Address namespaceNameToId numericStringToUInt64 payloadToTransaction privateKeyToPublicKey publicKeyToAddress stringToKey"
@@ -92,13 +95,13 @@ __symbol-cli-completion() {
         metadata)
             case ${words[2]} in
                 account)
-                    cmds="--profile -a --address"
+                    cmds="--profile --address -a"
                 ;;
                 mosaic)
-                    cmds="--profile -m --mosaic-id"
+                    cmds="--profile --mosaicId -m"
                 ;;
                 namespace)
-                    cmds="--profile -n --namespace-name"
+                    cmds="--profile --namespaceName -n"
                 ;;
                 *)
                     cmds="account mosaic namespace"
@@ -108,38 +111,41 @@ __symbol-cli-completion() {
         monitor)
             case ${words[2]} in
                 aggregatebonded)
-                    cmds="--profile -a --address"
+                    cmds="--profile --address -a"
                 ;;
                 all)
-                    cmds="--profile"
+                    cmds="--profile --address -a"
                 ;;
                 block)
                     cmds="--profile"
                 ;;
                 confirmed)
-                    cmds="--profile"
+                    cmds="--profile --address -a"
                 ;;
                 cosignature)
+                    cmds="--profile --address -a"
+                ;;
+                finalizedblock)
                     cmds="--profile"
                 ;;
                 status)
-                    cmds="--profile"
+                    cmds="--profile --address -a"
                 ;;
                 unconfirmed)
-                    cmds="--profile"
+                    cmds="--profile --address -a"
                 ;;
                 *)
-                    cmds="aggregatebonded all block confirmed cosignature status unconfirmed"
+                    cmds="aggregatebonded all block confirmed cosignature finalizedblock status unconfirmed"
                 ;;
             esac
         ;;
         mosaic)
             case ${words[2]} in
                 info)
-                    cmds="--profile -m --mosaic-id"
+                    cmds="--profile --mosaicId -m"
                 ;;
                 search)
-                    cmds="--profile --owner-address"
+                    cmds="--profile --order -o --pageSize -n --pageNumber -n --offset -i --ownerAddress"
                 ;;
                 *)
                     cmds="info search"
@@ -149,13 +155,13 @@ __symbol-cli-completion() {
         namespace)
             case ${words[2]} in
                 alias)
-                    cmds="--profile -n --namespace-name"
+                    cmds="--profile --namespaceName -n"
                 ;;
                 info)
-                    cmds="--profile -n --namespace-name -h --namespace-id"
+                    cmds="--profile --namespaceName -n --namespaceId -h"
                 ;;
                 owned)
-                    cmds="--profile -a --address"
+                    cmds="--profile --address -a"
                 ;;
                 *)
                     cmds="alias info owned"
@@ -184,13 +190,13 @@ __symbol-cli-completion() {
         profile)
             case ${words[2]} in
                 create)
-                    cmds="--profile"
+                    cmds="--profile --hd --url -u --network -n --password -p --default -d --generationHash -g --namespaceId -i --divisibility -v --epochAdjustment -e"
                 ;;
                 decrypt)
                     cmds="--profile"
                 ;;
                 import)
-                    cmds="--profile -P --private-key -M --mnemonic -N --path-number"
+                    cmds="--profile --hd --url -u --network -n --password -p --default -d --generationHash -g --namespaceId -i --divisibility -v --epochAdjustment -e --privateKey -P --mnemonic -M --pathNumber -N"
                 ;;
                 list)
                     cmds="--profile"
@@ -206,13 +212,13 @@ __symbol-cli-completion() {
         restriction)
             case ${words[2]} in
                 account)
-                    cmds="--profile -a --address"
+                    cmds="--profile --address -a"
                 ;;
                 mosaicaddress)
-                    cmds="--profile -a --address -m --mosaic-id"
+                    cmds="--profile --address -a --mosaicId -m"
                 ;;
                 mosaicglobal)
-                    cmds="--profile -m --mosaic-id"
+                    cmds="--profile --mosaicId -m"
                 ;;
                 *)
                     cmds="account mosaicaddress mosaicglobal"
@@ -222,85 +228,85 @@ __symbol-cli-completion() {
         transaction)
             case ${words[2]} in
                 accountaddressrestriction)
-                    cmds="--profile -p --password -f --max-fee --sync --announce -M --mode -S --signer -F --max-fee-hash-lock -D --lock-duration -L --lock-amount -f --flags -a --action -v --recipient-address"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --flags -f --action -a --recipientAddress -v"
                 ;;
                 accountkeylink)
-                    cmds="--profile -u --linked-public-key -a --action"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --linkedPublicKey -u --action -a"
                 ;;
                 accountmetadata)
-                    cmds="--profile -t --target-address -k --key -v --value"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --targetAddress -t --key -k --value -v"
                 ;;
                 accountmosaicrestriction)
-                    cmds="--profile -f --flags -a --action -v --mosaic-id"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --flags -f --action -a --mosaicId -v"
                 ;;
                 accountoperationrestriction)
-                    cmds="--profile -f --flags -a --action -v --transaction-type"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --flags -f --action -a --transactionType -v"
                 ;;
                 addressalias)
-                    cmds="--profile -a --action -a --address -n --namespace-name"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --action -a --address -a --namespaceName -n"
                 ;;
                 cosign)
-                    cmds="--profile -h --hash"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --hash -h"
                 ;;
                 info)
-                    cmds="--profile -h --hash"
+                    cmds="--profile --hash -h"
                 ;;
                 mosaic)
-                    cmds="--profile -a --amount -t --transferable -s --supply-mutable -r --restrictable -d --divisibility -u --duration -n --non-expiring"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --amount -a --transferable -t --supplyMutable -s --restrictable -r --divisibility -d --duration -u --nonExpiring -n"
                 ;;
                 mosaicaddressrestriction)
-                    cmds="--profile -m --mosaic-id -a --target-address -k --restriction-key -V --new-restriction-value"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --mosaicId -m --targetAddress -a --restrictionKey -k --newRestrictionValue -V"
                 ;;
                 mosaicalias)
-                    cmds="--profile -a --action -m --mosaic-id -n --namespace-name"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --action -a --mosaicId -m --namespaceName -n"
                 ;;
                 mosaicglobalrestriction)
-                    cmds="--profile -m --mosaic-id -r --reference-mosaic-id -k --restriction-key -V --new-restriction-value -T --new-restriction-type"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --mosaicId -m --referenceMosaicId -r --restrictionKey -k --newRestrictionValue -V --newRestrictionType -T"
                 ;;
                 mosaicmetadata)
-                    cmds="--profile -m --mosaic-id -t --target-address -k --key -v --value"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --mosaicId -m --targetAddress -t --key -k --value -v"
                 ;;
                 mosaicsupplychange)
-                    cmds="--profile -a --action -m --mosaic-id -d --amount"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --action -a --mosaicId -m --amount -d"
                 ;;
                 multisigmodification)
-                    cmds="--profile -R --min-removal-delta -A --min-approval-delta -a --action -p --cosignatory-addresses -u --multisig-account-public-key"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --minRemovalDelta -R --minApprovalDelta -A --action -a --cosignatoryAddresses -p --multisigAccountPublicKey -u"
                 ;;
                 namespace)
-                    cmds="--profile -n --name -r --rootnamespace -s --subnamespace -d --duration -a --parent-name"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --name -n --rootnamespace -r --subnamespace -s --duration -d --parentName -a"
                 ;;
                 namespacemetadata)
-                    cmds="--profile -n --namespace-id -t --target-address -k --key -v --value"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --namespaceId -n --targetAddress -t --key -k --value -v"
                 ;;
                 nodekeylink)
-                    cmds="--profile -u --linked-public-key -a --action"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --linkedPublicKey -u --action -a"
                 ;;
                 persistentharvestdelegation)
-                    cmds="--profile -r --remote-private-key -u --recipient-public-key"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --remotePrivateKey -r --recipientPublicKey -u --vrfPrivateKey -v"
                 ;;
                 search)
-                    cmds="--profile --group --address --recipient-address --signer-public-key --height --type"
+                    cmds="--profile --order -o --pageSize -n --pageNumber -n --offset -i --group --address --recipientAddress --signerPublicKey --height --type --fromHeight --toHeight"
                 ;;
                 secretlock)
-                    cmds="--profile -m --mosaic-id -a --amount -d --duration -s --secret -H --hash-algorithm -r --recipient-address"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --mosaicId -m --amount -a --duration -d --secret -s --hashAlgorithm -H --recipientAddress -r"
                 ;;
                 secretproof)
-                    cmds="--profile -s --secret -p --proof -H --hash-algorithm -r --recipient-address"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --secret -s --proof -p --hashAlgorithm -H --recipientAddress -r"
                 ;;
                 status)
-                    cmds="--profile -h --hash"
+                    cmds="--profile --hash -h"
                 ;;
                 transfer)
-                    cmds="--profile -r --recipient-address -m --message -e --encrypted -c --mosaics -u --recipient-public-key"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --recipientAddress -r --message -m --encrypted -e --mosaics -c --recipientPublicKey -u"
                 ;;
                 uri)
-                    cmds="--profile -u --uri"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --uri -u"
                 ;;
                 votingkeylink)
-                    cmds="--profile -u --linked-public-key --start-point --end-point -a --action"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --linkedPublicKey -u --startPoint --endPoint --action -a"
                 ;;
                 vrfkeylink)
-                    cmds="--profile -u --linked-public-key -a --action"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --linkedPublicKey -u --action -a"
                 ;;
                 *)
                     cmds="accountaddressrestriction accountkeylink accountmetadata accountmosaicrestriction accountoperationrestriction addressalias cosign info mosaic mosaicaddressrestriction mosaicalias mosaicglobalrestriction mosaicmetadata mosaicsupplychange multisigmodification namespace namespacemetadata nodekeylink persistentharvestdelegation search secretlock secretproof status transfer uri votingkeylink vrfkeylink"
