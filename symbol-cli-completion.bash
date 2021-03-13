@@ -1,6 +1,6 @@
 ### begin symbol-cli-completion.bash ###
 #
-# Symbol CLI v0.24.1 completion script for bash
+# Symbol CLI v1.0.1 completion script for bash
 #
 # Installation: cat symbol-cli-completion.bash >> ~/.bashrc
 # Or, maybe: mv symbol-cli-completion.bash /etc/bash_completion.d/symbol-cli
@@ -196,7 +196,7 @@ __symbol-cli-completion() {
                     cmds="--profile"
                 ;;
                 import)
-                    cmds="--profile --hd --url -u --network -n --password -p --default -d --generationHash -g --namespaceId -i --divisibility -v --epochAdjustment -e --privateKey -P --mnemonic -M --pathNumber -N"
+                    cmds="--profile --hd --url -u --network -n --password -p --default -d --generationHash -g --namespaceId -i --divisibility -v --epochAdjustment -e --privateKey -P --mnemonic -M --pathNumber -N --optin -O"
                 ;;
                 list)
                     cmds="--profile"
@@ -246,7 +246,7 @@ __symbol-cli-completion() {
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --action -a --address -a --namespaceName -n"
                 ;;
                 cosign)
-                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --hash -h"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --transactionInputType -i --hash -h --payload -p"
                 ;;
                 info)
                     cmds="--profile --hash -h"
@@ -270,7 +270,7 @@ __symbol-cli-completion() {
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --action -a --mosaicId -m --amount -d"
                 ;;
                 multisigmodification)
-                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --minRemovalDelta -R --minApprovalDelta -A --action -a --cosignatoryAddresses -p --multisigAccountPublicKey -u"
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --minRemovalDelta -R --minApprovalDelta -A --action -a --cosignatoryAddresses -p --multisigAccountPublicKey -u --aggregateType -t --deadline -d"
                 ;;
                 namespace)
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --name -n --rootnamespace -r --subnamespace -s --duration -d --parentName -a"
@@ -280,6 +280,9 @@ __symbol-cli-completion() {
                 ;;
                 nodekeylink)
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --linkedPublicKey -u --action -a"
+                ;;
+                payload)
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --payload -P --cosignatures -c"
                 ;;
                 persistentharvestdelegation)
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --remotePrivateKey -r --recipientPublicKey -u --vrfPrivateKey -v"
@@ -309,7 +312,7 @@ __symbol-cli-completion() {
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --linkedPublicKey -u --action -a"
                 ;;
                 *)
-                    cmds="accountaddressrestriction accountkeylink accountmetadata accountmosaicrestriction accountoperationrestriction addressalias cosign info mosaic mosaicaddressrestriction mosaicalias mosaicglobalrestriction mosaicmetadata mosaicsupplychange multisigmodification namespace namespacemetadata nodekeylink persistentharvestdelegation search secretlock secretproof status transfer uri votingkeylink vrfkeylink"
+                    cmds="accountaddressrestriction accountkeylink accountmetadata accountmosaicrestriction accountoperationrestriction addressalias cosign info mosaic mosaicaddressrestriction mosaicalias mosaicglobalrestriction mosaicmetadata mosaicsupplychange multisigmodification namespace namespacemetadata nodekeylink payload persistentharvestdelegation search secretlock secretproof status transfer uri votingkeylink vrfkeylink"
                 ;;
             esac
         ;;
