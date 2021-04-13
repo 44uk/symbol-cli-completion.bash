@@ -245,6 +245,9 @@ __symbol-cli-completion() {
                 addressalias)
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --action -a --address -a --namespaceName -n"
                 ;;
+                aggregatekeylinks)
+                    cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --remotePublicKey --remoteLinkAction --votingPublicKey --votingStartPoint --votingEndPoint --votingLinkAction --vrfPublicKey --vrfLinkAction --aggregateType -t --mainAccountPublicKey --enrolTransportPublicKey --enrolAgentUrl --enrolRecipientAdress"
+                ;;
                 cosign)
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --transactionInputType -i --hash -h --payload -p"
                 ;;
@@ -312,7 +315,7 @@ __symbol-cli-completion() {
                     cmds="--profile --password -p --maxFee -f --sync --announce --mode -M --signer -S --maxFeeHashLock -F --lockDuration -D --lockAmount -L --linkedPublicKey -u --action -a"
                 ;;
                 *)
-                    cmds="accountaddressrestriction accountkeylink accountmetadata accountmosaicrestriction accountoperationrestriction addressalias cosign info mosaic mosaicaddressrestriction mosaicalias mosaicglobalrestriction mosaicmetadata mosaicsupplychange multisigmodification namespace namespacemetadata nodekeylink payload persistentharvestdelegation search secretlock secretproof status transfer uri votingkeylink vrfkeylink"
+                    cmds="accountaddressrestriction accountkeylink accountmetadata accountmosaicrestriction accountoperationrestriction addressalias aggregatekeylinks cosign info mosaic mosaicaddressrestriction mosaicalias mosaicglobalrestriction mosaicmetadata mosaicsupplychange multisigmodification namespace namespacemetadata nodekeylink payload persistentharvestdelegation search secretlock secretproof status transfer uri votingkeylink vrfkeylink"
                 ;;
             esac
         ;;
